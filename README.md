@@ -29,6 +29,20 @@ Once you've written your provider, you'll want to [publish it on the Terraform R
 $ go install
 ```
 
+## Local testing
+
+To test this locally set this up in `~/.terraformrc`
+
+```hcl
+provider_installation {
+   dev_overrides {
+       "registry.terraform.io/svanellewee/task-list" = "/home/YOURUSER/source/terraform-provider-todo"
+   }
+}
+```
+
+The [examples/provider.tf](./examples/provider/provider.tf) has been modified. Needs refactoring, but currently it allows some testing.
+
 ## Adding Dependencies
 
 This provider uses [Go modules](https://github.com/golang/go/wiki/Modules).
@@ -62,3 +76,4 @@ In order to run the full suite of Acceptance tests, run `make testacc`.
 ```sh
 $ make testacc
 ```
+
